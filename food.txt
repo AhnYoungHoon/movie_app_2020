@@ -1,0 +1,55 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function Food ({ name , picture , rating}){
+  return (
+    <div>
+      <h2>I like {name}</h2>
+      <h4>{rating}/5.0</h4>
+      <img src={picture} alt={name} />
+    </div>
+  );
+}
+
+const FoodILike=[
+  {
+    id:1,
+    name: "Kimchi",
+    image: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fshop1.phinf.naver.net%2F20190115_261%2Fmny09_1547544803226HRVfX_JPEG%2F30263662074307527_855033337.jpg&type=sc960_832',
+    rating: 5,
+  },
+  {
+    id:2,
+    name: "Samgyeopsal",
+    image: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140402_132%2Foheunae79_1396365544046iG5tB_JPEG%2F%25BB%25EF%25B0%25E3%25BB%25EC%25BF%25C0%25BA%25EC%25B1%25B8%25C0%25CC_%252811%2529.JPG&type=sc960_832',
+    rating: 4.8,
+  
+  },
+  {
+    id:3,
+    name: "Bibimbap",
+    image: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20140924_42%2Famichonfood_1411538430013KEwFY_JPEG%2F7.jpg&type=sc960_832',
+    rating: 4.5,
+  },
+  {
+    id:4,
+    name: "Doncasu",
+    image: 'https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODExMjlfMjIx%2FMDAxNTQzNDE4NDA3OTMy.ZbmLrRC8bbL9rkVMKF9yO9SUPOVoa4_zrzQOvN_XBysg.gPjqyfYjxEMEeAA_LiRtKs6wtnjjRUrlEOSV69jWowAg.GIF.tkdzha2136%2F20181128_165613_2.gif&type=b400',
+    rating: 4.7,
+  },
+];
+function App() {
+  return (
+  <div>
+    {FoodILike.map(dish=>(<Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating} />))}
+  </div>
+  );
+}
+
+Food.propTypes={
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+};
+
+export default App;
